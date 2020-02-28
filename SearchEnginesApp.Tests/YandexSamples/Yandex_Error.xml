@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<yandexsearch version="1.0">
+  <response date="20200224T212357">
+    <error code="33">
+      TestError
+    </error>
+    <reqid>
+      1582579437610973-1502835780787043866617716-sas3-5921-XML
+    </reqid>
+  </response>
+</yandexsearch>

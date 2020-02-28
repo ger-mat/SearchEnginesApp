@@ -1,0 +1,15 @@
+﻿@model IList<FoundItemVM>
+
+<ol>
+    @foreach (var item in Model)
+    {
+        <li>
+            <h3><a href="@item.Url">@item.Title</a></h3>
+            <p>
+                <b>@System.Net.WebUtility.UrlDecode(item.Url)</b><br />
+                @item.Snippet
+            </p>
+        </li>
+
+    }
+</ol>    

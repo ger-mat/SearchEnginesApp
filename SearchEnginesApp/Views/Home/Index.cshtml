@@ -1,0 +1,30 @@
+﻿@model SearchResultVM
+@{
+    ViewBag.Title = "WebSearch";
+    var hasFound = Model.Items?.Any() == true;
+}
+
+<h1>@ViewBag.Title</h1>
+<table>
+    <tr>
+        <td>
+            <form asp-action="WebSearch" asp-antiforgery="true" method="post">
+                <input asp-for="Query" />
+                <input type="submit" value="search" />
+            </form>
+        </td>
+        <td>
+            @if (hasFound)
+            { 
+                await Html.RenderPartialAsync("_TrademarkLink", Model.TrademarkLink);
+            }
+        </td>
+    </tr>
+</table>
+
+<h2>@Model.Message</h2>
+
+@if (hasFound)
+{
+    await Html.RenderPartialAsync("_FoundItems", Model.Items);    
+}

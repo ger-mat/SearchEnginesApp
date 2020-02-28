@@ -1,0 +1,13 @@
+﻿@model SearchEnginesApp.Services.SearchEngine.TrademarkLink
+@{
+    var source = string.Concat("../images/", Model.Image);
+    var alt = string.Concat(Model.Image);
+}
+
+<div style="margin:10px">
+    <p>
+        @Model.PreffixMessage<br/>
+        <a href="@Model.Hyperlink" target="_blank"><img src=@source alt=@alt /></a><br />
+        @Model.SuffixMessage
+    </p>
+</div>

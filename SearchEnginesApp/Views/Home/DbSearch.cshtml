@@ -1,0 +1,28 @@
+﻿@model DbSearchVM
+@{
+    ViewBag.Title = "DbSearch";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<form asp-action="DbSearch" asp-antiforgery="true" method="get">
+    <input asp-for="Query" />
+    <input type="submit" value="search" />
+</form>
+
+@if (Model.SearchResults?.Any() == true)
+{
+    <ol>
+        @foreach (var sr in Model.SearchResults)
+        {
+        <li>
+            <h2>@sr.Engine has found (@sr.Date.ToShortDateString()):</h2>
+            @{ await Html.RenderPartialAsync("_FoundItems", sr.Items); }
+        </li>
+        }
+    </ol>    
+}
+else if (!string.IsNullOrWhiteSpace(Model.Query))
+{
+    <h2>Nothing found.</h2>
+}
